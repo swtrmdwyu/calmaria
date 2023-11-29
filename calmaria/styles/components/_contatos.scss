@@ -1,0 +1,77 @@
+@use '../abstract/variables';
+@use '../abstract/mixins';
+
+#contatos {
+    @include mixins.margem-central(80%);
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 5rem;
+
+    .contatos-imgs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: space-around;
+        max-width: 50%;
+    }
+
+    .contatos-form {
+        background: variables.$gradiente-primario;
+        border-radius: 3rem;
+        max-width: 50%;
+        padding: 2rem 3rem;
+
+        .titulo {
+            @include mixins.ff-fs-cl(variables.$ft-titulos, 1.9rem, variables.$cor-secundaria);
+        }
+
+        .infos {
+            @include mixins.ff-fs-cl(variables.$ft-textos, 1.2rem, variables.$cor-primaria);
+        }     
+
+        .inputs {
+            align-items: flex-start;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            input {
+                border: none;
+                border-radius: 25px;
+                padding: 1rem;
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                width: 100%;
+
+                label {
+                    @extend .infos;
+                    font-weight: bold;
+                }
+
+                textarea {
+                    @extend input;
+                }
+            }
+            .btn {
+                @extend input;
+                background: variables.$cor-secundaria;
+                color: white;
+                font-size: 1rem;
+                margin-top: 2rem;
+                width: 100%;
+                transition: ease-in-out .2s;
+
+                &:hover {
+                    background-color: variables.$cor-default;
+                }
+            }
+        }
+    }
+}

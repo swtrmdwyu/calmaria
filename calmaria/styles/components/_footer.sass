@@ -1,0 +1,10 @@
+//_footer.sass
+@use '../abstract/variables'
+@use '../abstract/mixins'
+
+footer
+    @include mixins.ff-fs-cl(variables.$ft-textos, 1rem, variables.$cor-primaria)
+    background: variables.$cor-quaternaria
+    margin-top: 7rem
+    padding: 2rem
+    text-align: center
